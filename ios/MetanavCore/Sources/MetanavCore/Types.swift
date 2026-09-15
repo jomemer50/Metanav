@@ -94,13 +94,15 @@ public struct ReasonerConfig: Sendable, Equatable {
     /// Blobs narrower than this fraction of the frame width are noise.
     public var minBlobWidthRatio: Float = 0.07
     /// Temporal confirmation: seen in at least `confirmHits` of the last `confirmWindow` frames.
-    public var confirmHits: Int = 3
-    public var confirmWindow: Int = 5
+    public var confirmHits: Int = 2
+    public var confirmWindow: Int = 3
     /// Frames a track may go unseen before it is dropped.
-    public var maxMissedFrames: Int = 4
-    /// Global minimum gap between spoken advisories.
+    public var maxMissedFrames: Int = 3
+    /// Global minimum gap between spoken advisories about the same obstacle.
     public var cooldownMs: Int64 = 2500
-    public var urgentCooldownMs: Int64 = 900
+    /// A brand-new obstacle or an escalation to "stop" may interrupt after this long.
+    public var newObstacleCooldownMs: Int64 = 500
+    public var urgentCooldownMs: Int64 = 500
     /// Re-announce the same obstacle when it got this much closer (meters).
     public var reannounceCloserBy: Float = 1.0
     /// Remind about a persisting obstacle after this long, at most `maxReminders` times.

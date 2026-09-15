@@ -38,7 +38,7 @@ class Track internal constructor(val id: Int, blob: Blob, frameIndex: Int) {
     internal fun update(blob: Blob, frameIndex: Int, window: Int) {
         left = 0.5f * left + 0.5f * blob.left
         right = 0.5f * right + 0.5f * blob.right
-        distanceMeters = 0.6f * distanceMeters + 0.4f * blob.distanceMeters
+        distanceMeters = 0.5f * distanceMeters + 0.5f * blob.distanceMeters
         lastSeenFrame = frameIndex
         hitFrames.addLast(frameIndex)
         while (hitFrames.isNotEmpty() && hitFrames.first() <= frameIndex - window) hitFrames.removeFirst()

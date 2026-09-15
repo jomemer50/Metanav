@@ -12,7 +12,9 @@ final class NavigationEngine {
     var onPreview: ((UIImage) -> Void)?
     var onStats: ((Stats) -> Void)?
 
-    private let queue = DispatchQueue(label: "metanav.vision", qos: .userInitiated)
+    private let queue = DispatchQueue(label: "metanav.vision", qos: .userInteractive)
+    private let previewQueue = DispatchQueue(label: "metanav.preview", qos: .utility)
+    private var previewBusy = false
     private let reasoner: ObstacleReasoner
     private let depth: DepthEstimator
     private let detector: ObjectDetector?
@@ -24,8 +26,8 @@ final class NavigationEngine {
     private var lastDetections: [Detection] = []
     private var stats = Stats()
 
-    /// Cap processing at ~8 fps: enough for walking speed, kind to the battery.
-    private let minIntervalMs: Int64 = 120
+    /// Process as fast as the depth model allows, capped at ~20 fps.
+    private let minIntervalMs: Int64 = 50
 
     init(config: ReasonerConfig) throws {
         reasoner = ObstacleReasoner(config: config)
@@ -64,19 +66,34 @@ final class NavigationEngine {
             depthMap = nil
         }
         frameCounter += 1
-        // The detector matters less than depth: run it every other frame.
-        if let detector, frameCounter % 2 == 0 {
+        // Depth is what triggers alerts, so it runs every frame; the detector only adds names and
+        // runs every third frame.
+        if let detector, frameCounter % 3 == 0 {
             lastDetections = (try? detector.detect(frame.image)) ?? lastDetections
         }
         let output = reasoner.process(FrameObservation(timestampMs: frame.timestampMs, depth: depthMap, detections: lastDetections))
         onScene?(output.scene)
         if let advisory = output.advisory { onAdvisory?(advisory) }
-        if let onPreview, let image = previewImage(frame.image) { onPreview(image) }
+        schedulePreview(frame.image)
 
         let elapsed = Int(nowMs() - started)
         let fps = 1000 / Float(max(Int64(elapsed), minIntervalMs))
         stats = Stats(processedFps: 0.8 * stats.processedFps + 0.2 * fps, inferenceMs: elapsed)
         onStats?(stats)
+    }
+
+    /// Preview rendering never delays the next depth frame: it runs on its own low-priority queue
+    /// and simply skips frames while it is behind.
+    private func schedulePreview(_ image: FrameImage) {
+        guard onPreview != nil else { return }
+        busyLock.lock()
+        if previewBusy { busyLock.unlock(); return }
+        previewBusy = true
+        busyLock.unlock()
+        previewQueue.async { [self] in
+            if let ui = previewImage(image) { onPreview?(ui) }
+            busyLock.lock(); previewBusy = false; busyLock.unlock()
+        }
     }
 
     private func previewImage(_ image: FrameImage) -> UIImage? {

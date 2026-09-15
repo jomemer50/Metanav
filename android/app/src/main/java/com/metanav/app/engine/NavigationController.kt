@@ -137,6 +137,7 @@ class NavigationController(private val app: Application) {
                 }
                 source = src
                 NavigationService.start(app, kind)
+                voice.begin()
                 sessionJobs += scope.launch(Dispatchers.Default) { src.frames.collect { eng.submit(it) } }
                 sessionJobs += scope.launch {
                     src.state.collect { s ->
@@ -146,6 +147,7 @@ class NavigationController(private val app: Application) {
                             else -> RunState.Running(kind, s)
                         }
                         if (s is SourceState.Error || s is SourceState.Idle && _runState.value is RunState.Stopped) {
+                            voice.end()
                             teardownSource()
                         }
                     }
@@ -160,7 +162,7 @@ class NavigationController(private val app: Application) {
     }
 
     fun stop() {
-        voice.stop()
+        voice.end()
         teardownSource()
         _runState.value = RunState.Stopped
     }

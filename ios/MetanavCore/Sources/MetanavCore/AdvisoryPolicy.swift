@@ -39,13 +39,15 @@ public final class AdvisoryPolicy {
         let urgency: Urgency = z < config.urgentDistanceMeters ? .stop : .caution
         guard let reason = speakReason(candidate, z: z, urgency: urgency, nowMs: nowMs) else { return nil }
 
-        let cooldown = urgency == .stop ? config.urgentCooldownMs : config.cooldownMs
-        let sinceSpoken = Self.since(nowMs, lastSpokenAtMs)
-        if sinceSpoken < cooldown {
-            // Let an escalation to STOP interrupt a normal cooldown, nothing else.
-            let escalation = urgency == .stop && lastSpokenUrgency != .stop && sinceSpoken >= config.urgentCooldownMs
-            if !escalation { return nil }
+        // New obstacles and escalations to STOP are what the user needs to hear right away; only
+        // repeat announcements about a known obstacle wait out the long cooldown.
+        let cooldown: Int64
+        switch (reason, urgency) {
+        case (.new, _): cooldown = config.newObstacleCooldownMs
+        case (_, .stop): cooldown = config.urgentCooldownMs
+        default: cooldown = config.cooldownMs
         }
+        if Self.since(nowMs, lastSpokenAtMs) < cooldown { return nil }
 
         candidate.announcedCount += 1
         candidate.lastAnnouncedDistance = z

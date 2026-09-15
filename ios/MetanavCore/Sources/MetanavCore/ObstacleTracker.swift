@@ -38,7 +38,7 @@ public final class Track {
     func update(blob: Blob, frameIndex: Int, window: Int) {
         left = 0.5 * left + 0.5 * blob.left
         right = 0.5 * right + 0.5 * blob.right
-        distanceMeters = 0.6 * distanceMeters + 0.4 * blob.distanceMeters
+        distanceMeters = 0.5 * distanceMeters + 0.5 * blob.distanceMeters
         lastSeenFrame = frameIndex
         hitFrames.append(frameIndex)
         hitFrames.removeAll { $0 <= frameIndex - window }

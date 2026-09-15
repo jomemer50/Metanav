@@ -14,10 +14,31 @@ final class VoiceFeedback: NSObject, AVSpeechSynthesizerDelegate {
         super.init()
         synthesizer.delegate = self
         do {
-            try session.setCategory(.playback, mode: .voicePrompt, options: [.duckOthers, .interruptSpokenAudioAndMixWithOthers])
+            try session.setCategory(.playback, mode: .voicePrompt, options: [.mixWithOthers, .duckOthers])
         } catch {
             NSLog("[Metanav] audio session category failed: \(error.localizedDescription)")
         }
+    }
+
+    /// Call when guidance starts: keeps the audio session (and with it the Bluetooth route to the
+    /// glasses) open for the whole run, and warms up the speech engine, so the first real
+    /// advisory is not delayed by a cold start.
+    func begin() {
+        try? session.setActive(true, options: [])
+        let warmup = AVSpeechUtterance(string: " ")
+        warmup.volume = 0
+        warmup.voice = preferredVoice
+        synthesizer.speak(warmup)
+    }
+
+    /// Call when guidance stops: releases the audio session so other audio gets its volume back.
+    func end() {
+        synthesizer.stopSpeaking(at: .immediate)
+        try? session.setActive(false, options: [.notifyOthersOnDeactivation])
+    }
+
+    private var preferredVoice: AVSpeechSynthesisVoice? {
+        AVSpeechSynthesisVoice(language: Locale.current.identifier) ?? AVSpeechSynthesisVoice(language: "en-US")
     }
 
     func speak(_ advisory: Advisory) {
@@ -27,9 +48,8 @@ final class VoiceFeedback: NSObject, AVSpeechSynthesizerDelegate {
     func speak(_ text: String, urgent: Bool) {
         guard enabled else { return }
         if synthesizer.isSpeaking { synthesizer.stopSpeaking(at: urgent ? .immediate : .word) }
-        try? session.setActive(true, options: [])
         let utterance = AVSpeechUtterance(string: text)
-        utterance.voice = AVSpeechSynthesisVoice(language: Locale.current.identifier) ?? AVSpeechSynthesisVoice(language: "en-US")
+        utterance.voice = preferredVoice
         utterance.rate = AVSpeechUtteranceDefaultSpeechRate * 1.05
         utterance.prefersAssistiveTechnologySettings = true
         synthesizer.speak(utterance)
@@ -37,11 +57,7 @@ final class VoiceFeedback: NSObject, AVSpeechSynthesizerDelegate {
 
     func stop() {
         synthesizer.stopSpeaking(at: .immediate)
-        try? session.setActive(false, options: [.notifyOthersOnDeactivation])
     }
 
-    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
-        // Give other audio its volume back once we're done talking.
-        if !synthesizer.isSpeaking { try? session.setActive(false, options: [.notifyOthersOnDeactivation]) }
-    }
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {}
 }

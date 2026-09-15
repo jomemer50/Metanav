@@ -37,14 +37,14 @@ class AdvisoryPolicy(private val config: ReasonerConfig) {
         val urgency = if (z < config.urgentDistanceMeters) Urgency.STOP else Urgency.CAUTION
         val reason = speakReason(candidate, z, urgency, nowMs) ?: return null
 
-        val cooldown = if (urgency == Urgency.STOP) config.urgentCooldownMs else config.cooldownMs
-        val sinceSpoken = since(nowMs, lastSpokenAtMs)
-        if (sinceSpoken < cooldown) {
-            // Let an escalation to STOP interrupt a normal cooldown, nothing else.
-            if (!(urgency == Urgency.STOP && lastSpokenUrgency != Urgency.STOP && sinceSpoken >= config.urgentCooldownMs)) {
-                return null
-            }
+        // New obstacles and escalations to STOP are what the user needs to hear right away; only
+        // repeat announcements about a known obstacle wait out the long cooldown.
+        val cooldown = when {
+            reason == Reason.NEW -> config.newObstacleCooldownMs
+            urgency == Urgency.STOP -> config.urgentCooldownMs
+            else -> config.cooldownMs
         }
+        if (since(nowMs, lastSpokenAtMs) < cooldown) return null
 
         candidate.announcedCount++
         candidate.lastAnnouncedDistance = z

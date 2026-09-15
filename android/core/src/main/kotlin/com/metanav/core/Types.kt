@@ -66,13 +66,15 @@ data class ReasonerConfig(
     /** Blobs narrower than this fraction of the frame width are noise. */
     val minBlobWidthRatio: Float = 0.07f,
     /** Temporal confirmation: seen in at least [confirmHits] of the last [confirmWindow] frames. */
-    val confirmHits: Int = 3,
-    val confirmWindow: Int = 5,
+    val confirmHits: Int = 2,
+    val confirmWindow: Int = 3,
     /** Frames a track may go unseen before it is dropped. */
-    val maxMissedFrames: Int = 4,
-    /** Global minimum gap between spoken advisories. */
+    val maxMissedFrames: Int = 3,
+    /** Global minimum gap between spoken advisories about the same obstacle. */
     val cooldownMs: Long = 2500,
-    val urgentCooldownMs: Long = 900,
+    /** A brand-new obstacle or an escalation to "stop" may interrupt after this long. */
+    val newObstacleCooldownMs: Long = 500,
+    val urgentCooldownMs: Long = 500,
     /** Re-announce the same obstacle when it got this much closer (meters). */
     val reannounceCloserBy: Float = 1.0f,
     /** Remind about a persisting obstacle after this long, at most [maxReminders] times. */

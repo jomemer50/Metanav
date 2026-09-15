@@ -24,7 +24,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 
 /** Frame in, scene + advisory out. Runs the models on one background thread and drops frames while busy. */
 class NavigationEngine(context: Context, config: ReasonerConfig) : Closeable {
-    private val executor = Executors.newSingleThreadExecutor { r -> Thread(r, "metanav-vision").apply { priority = Thread.NORM_PRIORITY + 1 } }
+    private val executor = Executors.newSingleThreadExecutor { r -> Thread(r, "metanav-vision").apply { priority = Thread.MAX_PRIORITY } }
     private val busy = AtomicBoolean(false)
     private val reasoner = ObstacleReasoner(config)
     private val depth: DepthEstimator? = runCatching { DepthEstimator(context) }.onFailure { Log.e(TAG, "Depth model unavailable", it) }.getOrNull()
@@ -74,9 +74,10 @@ class NavigationEngine(context: Context, config: ReasonerConfig) : Closeable {
         val started = System.currentTimeMillis()
         val depthMap = depth?.estimate(frame.bitmap)
         frameCounter++
-        // The detector is the slower, less important model: run it every other frame.
+        // Depth is what triggers alerts, so it runs every frame; the detector only adds names and
+        // runs every third frame.
         val det = detector
-        if (det != null && frameCounter % 2 == 0) {
+        if (det != null && frameCounter % 3 == 0) {
             lastDetections = runCatching { det.detect(frame.bitmap) }.getOrDefault(lastDetections)
         }
         val out = reasoner.process(FrameObservation(frame.timestampMs, depthMap, lastDetections))
@@ -96,7 +97,7 @@ class NavigationEngine(context: Context, config: ReasonerConfig) : Closeable {
 
     companion object {
         private const val TAG = "Metanav:Engine"
-        /** Cap processing at ~8 fps: enough for walking speed, kind to the battery. */
-        private const val MIN_INTERVAL_MS = 120L
+        /** Process as fast as the depth model allows, capped at ~20 fps. */
+        private const val MIN_INTERVAL_MS = 50L
     }
 }

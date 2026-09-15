@@ -132,23 +132,25 @@ final class NavigationController: ObservableObject {
             Task { @MainActor in self?.sourceStateChanged(kind, state) }
         }
         UIApplication.shared.isIdleTimerDisabled = true
+        voice.begin()
         await source.start()
     }
 
     private func sourceStateChanged(_ kind: SourceKind, _ state: SourceState) {
         switch state {
         case .error(let message):
+            voice.end()
             teardownSource()
             runState = .failed(message)
         case .idle:
-            if case .running = runState { teardownSource(); runState = .stopped }
+            if case .running = runState { voice.end(); teardownSource(); runState = .stopped }
         default:
             runState = .running(kind, state)
         }
     }
 
     func stop() {
-        voice.stop()
+        voice.end()
         teardownSource()
         runState = .stopped
     }

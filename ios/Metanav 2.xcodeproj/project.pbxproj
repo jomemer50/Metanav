@@ -1,0 +1,531 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02C5069D1EF695BEE2FF9A1F /* MetanavCore in Frameworks */ = {isa = PBXBuildFile; productRef = F10DE2911B8C987E6CEF2DEC /* MetanavCore */; };
+		113E480E24F4C16F44510008 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E8EA2F4750ADEC022B13B9 /* NavigationController.swift */; };
+		1550288D46B48067863F3CE2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2DB822E71DC8DD16FCA77B /* SettingsView.swift */; };
+		28E9936647FEDB8EC9A5197A /* MWDATCore in Frameworks */ = {isa = PBXBuildFile; productRef = E718D3E3E4D8268C53D9CDF0 /* MWDATCore */; };
+		36BAED0CFA7FC7610A789787 /* MWDATCamera in Frameworks */ = {isa = PBXBuildFile; productRef = BFACDE65824411C75D1E0D4F /* MWDATCamera */; };
+		4521565873C11EA2A620D1C1 /* ObjectDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B767634611DC7F3413BE340E /* ObjectDetector.swift */; };
+		4A772115CC94FEF809B6292B /* PhoneCameraFrameSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC91828F9EA607DF5CDC2A01 /* PhoneCameraFrameSource.swift */; };
+		70B52298E8DA133AA0D310DF /* FrameSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D938D749A574F7DBA144C315 /* FrameSource.swift */; };
+		71576CF8A2452CDEA7A4912E /* VoiceFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCB3E1A49A2C35C2A58C95 /* VoiceFeedback.swift */; };
+		73C9A4FB25D008BB4D9B8803 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B247416DBE1E4A7C0E3DC3F /* Haptics.swift */; };
+		7B569AAC4E8D56F76721C291 /* MetanavApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B373A789509CF7F278D499DE /* MetanavApp.swift */; };
+		83E0644085EBAD96E099EBCA /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBA56CCC6E9DB4D2D48240A /* Settings.swift */; };
+		A1F9824DC0D4DE6415D8C760 /* GlassesFrameSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F7E417B94F0C75607CA49B /* GlassesFrameSource.swift */; };
+		B72A6A830BD278E77287FE89 /* DepthEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F7EEA556EC4A7063FDF6E2 /* DepthEstimator.swift */; };
+		BB13C90E249E8DF2B31C2115 /* NavigateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5D7FF2190D0DE0E0306471 /* NavigateView.swift */; };
+		CBB99E11EB51BA09EF0CB566 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B62E3AC97034120890FDAC4 /* HomeView.swift */; };
+		DA1E5E88D168B93F15434AE0 /* NavigationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F3991FCC39EF0FED584AA5 /* NavigationEngine.swift */; };
+		E33443B1C2047E6E33276E8F /* DepthAnythingV2SmallF16.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 95DDB2E9DB46DCB7CBDFCC9A /* DepthAnythingV2SmallF16.mlpackage */; };
+		F53B4AA52D671D7220E46043 /* YOLOv3TinyInt8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = DDDDD2BA39FE0EE7397FC353 /* YOLOv3TinyInt8LUT.mlmodel */; };
+		F78BC311A01DAD64D47CA2DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AF1E732B270A0D2AC165606 /* Assets.xcassets */; };
+		F90312A81F66956C5E21BD23 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80339DBE677FBCDFDEF3380B /* Theme.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		07F3991FCC39EF0FED584AA5 /* NavigationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationEngine.swift; sourceTree = "<group>"; };
+		1AF1E732B270A0D2AC165606 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1E5D7FF2190D0DE0E0306471 /* NavigateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigateView.swift; sourceTree = "<group>"; };
+		21E8EA2F4750ADEC022B13B9 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		26F7EEA556EC4A7063FDF6E2 /* DepthEstimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthEstimator.swift; sourceTree = "<group>"; };
+		44DCB3E1A49A2C35C2A58C95 /* VoiceFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceFeedback.swift; sourceTree = "<group>"; };
+		4B247416DBE1E4A7C0E3DC3F /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
+		593AD55FF00549D074892104 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7B62E3AC97034120890FDAC4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		80339DBE677FBCDFDEF3380B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		83F7E417B94F0C75607CA49B /* GlassesFrameSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassesFrameSource.swift; sourceTree = "<group>"; };
+		95DDB2E9DB46DCB7CBDFCC9A /* DepthAnythingV2SmallF16.mlpackage */ = {isa = PBXFileReference; path = DepthAnythingV2SmallF16.mlpackage; sourceTree = "<group>"; };
+		9EDA45D7D3A03D2C6535726D /* Metanav.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Metanav.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FBA56CCC6E9DB4D2D48240A /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		AD9ABAA7C3A1BFDE64C4927A /* MetanavCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetanavCore; path = MetanavCore; sourceTree = SOURCE_ROOT; };
+		B373A789509CF7F278D499DE /* MetanavApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetanavApp.swift; sourceTree = "<group>"; };
+		B767634611DC7F3413BE340E /* ObjectDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetector.swift; sourceTree = "<group>"; };
+		D938D749A574F7DBA144C315 /* FrameSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameSource.swift; sourceTree = "<group>"; };
+		DDDDD2BA39FE0EE7397FC353 /* YOLOv3TinyInt8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3TinyInt8LUT.mlmodel; sourceTree = "<group>"; };
+		FC91828F9EA607DF5CDC2A01 /* PhoneCameraFrameSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCameraFrameSource.swift; sourceTree = "<group>"; };
+		FE2DB822E71DC8DD16FCA77B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5281E04D316D493D4F6A97DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28E9936647FEDB8EC9A5197A /* MWDATCore in Frameworks */,
+				36BAED0CFA7FC7610A789787 /* MWDATCamera in Frameworks */,
+				02C5069D1EF695BEE2FF9A1F /* MetanavCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		072D9E1F7947858354E58BA7 /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				4B247416DBE1E4A7C0E3DC3F /* Haptics.swift */,
+				44DCB3E1A49A2C35C2A58C95 /* VoiceFeedback.swift */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
+		2006BF638E8127AC7A9CBC93 /* Vision */ = {
+			isa = PBXGroup;
+			children = (
+				26F7EEA556EC4A7063FDF6E2 /* DepthEstimator.swift */,
+				B767634611DC7F3413BE340E /* ObjectDetector.swift */,
+			);
+			path = Vision;
+			sourceTree = "<group>";
+		};
+		31C1948CD4779B7DFF985398 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7B62E3AC97034120890FDAC4 /* HomeView.swift */,
+				1E5D7FF2190D0DE0E0306471 /* NavigateView.swift */,
+				FE2DB822E71DC8DD16FCA77B /* SettingsView.swift */,
+				80339DBE677FBCDFDEF3380B /* Theme.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4119E17ECD02ADC408674B73 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9EDA45D7D3A03D2C6535726D /* Metanav.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8C800B423ED1F09FED46C6D4 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				AD9ABAA7C3A1BFDE64C4927A /* MetanavCore */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		9F561BE565B6E03139045D27 /* Frames */ = {
+			isa = PBXGroup;
+			children = (
+				D938D749A574F7DBA144C315 /* FrameSource.swift */,
+				83F7E417B94F0C75607CA49B /* GlassesFrameSource.swift */,
+				FC91828F9EA607DF5CDC2A01 /* PhoneCameraFrameSource.swift */,
+			);
+			path = Frames;
+			sourceTree = "<group>";
+		};
+		B8E49ED26BA654FF00A3B56B = {
+			isa = PBXGroup;
+			children = (
+				B9942FA6683DD12DD881F404 /* Metanav */,
+				8C800B423ED1F09FED46C6D4 /* Packages */,
+				4119E17ECD02ADC408674B73 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B9942FA6683DD12DD881F404 /* Metanav */ = {
+			isa = PBXGroup;
+			children = (
+				1AF1E732B270A0D2AC165606 /* Assets.xcassets */,
+				593AD55FF00549D074892104 /* Info.plist */,
+				B373A789509CF7F278D499DE /* MetanavApp.swift */,
+				E1A8058A3BC14DE2C308A6BE /* Engine */,
+				072D9E1F7947858354E58BA7 /* Feedback */,
+				9F561BE565B6E03139045D27 /* Frames */,
+				D199FCC02BCC808F6BB4DFCE /* Models */,
+				31C1948CD4779B7DFF985398 /* Views */,
+				2006BF638E8127AC7A9CBC93 /* Vision */,
+			);
+			path = Metanav;
+			sourceTree = "<group>";
+		};
+		D199FCC02BCC808F6BB4DFCE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				95DDB2E9DB46DCB7CBDFCC9A /* DepthAnythingV2SmallF16.mlpackage */,
+				DDDDD2BA39FE0EE7397FC353 /* YOLOv3TinyInt8LUT.mlmodel */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E1A8058A3BC14DE2C308A6BE /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				21E8EA2F4750ADEC022B13B9 /* NavigationController.swift */,
+				07F3991FCC39EF0FED584AA5 /* NavigationEngine.swift */,
+				9FBA56CCC6E9DB4D2D48240A /* Settings.swift */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E4F78964E23DF28D640EA688 /* Metanav */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 581983BB25C31311D8469FDB /* Build configuration list for PBXNativeTarget "Metanav" */;
+			buildPhases = (
+				D80BB34DE7F30E7DBBF867AF /* Check ML models are present */,
+				C2B79BEFD28CB52E8A4CC279 /* Sources */,
+				F6503A4914E2470FEC9C9898 /* Resources */,
+				5281E04D316D493D4F6A97DD /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Metanav;
+			packageProductDependencies = (
+				E718D3E3E4D8268C53D9CDF0 /* MWDATCore */,
+				BFACDE65824411C75D1E0D4F /* MWDATCamera */,
+				F10DE2911B8C987E6CEF2DEC /* MetanavCore */,
+			);
+			productName = Metanav;
+			productReference = 9EDA45D7D3A03D2C6535726D /* Metanav.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9B61A1120D0FBB4D044CCEB2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					E4F78964E23DF28D640EA688 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D386D9ED0AA71EB924A62A7F /* Build configuration list for PBXProject "Metanav" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = B8E49ED26BA654FF00A3B56B;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				DF083417CB72BD4F5DD552D4 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */,
+				6F46B2BC664CC2305E5BD05D /* XCLocalSwiftPackageReference "MetanavCore" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 4119E17ECD02ADC408674B73 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E4F78964E23DF28D640EA688 /* Metanav */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F6503A4914E2470FEC9C9898 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F78BC311A01DAD64D47CA2DE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D80BB34DE7F30E7DBBF867AF /* Check ML models are present */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Check ML models are present";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ ! -d \"${SRCROOT}/Metanav/Models/DepthAnythingV2SmallF16.mlpackage\" ]; then\n  echo \"error: Depth model missing. Run scripts/fetch-models.sh ios from the repo root, then run 'xcodegen generate' in ios/ and rebuild.\"\n  exit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C2B79BEFD28CB52E8A4CC279 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E33443B1C2047E6E33276E8F /* DepthAnythingV2SmallF16.mlpackage in Sources */,
+				B72A6A830BD278E77287FE89 /* DepthEstimator.swift in Sources */,
+				70B52298E8DA133AA0D310DF /* FrameSource.swift in Sources */,
+				A1F9824DC0D4DE6415D8C760 /* GlassesFrameSource.swift in Sources */,
+				73C9A4FB25D008BB4D9B8803 /* Haptics.swift in Sources */,
+				CBB99E11EB51BA09EF0CB566 /* HomeView.swift in Sources */,
+				7B569AAC4E8D56F76721C291 /* MetanavApp.swift in Sources */,
+				BB13C90E249E8DF2B31C2115 /* NavigateView.swift in Sources */,
+				113E480E24F4C16F44510008 /* NavigationController.swift in Sources */,
+				DA1E5E88D168B93F15434AE0 /* NavigationEngine.swift in Sources */,
+				4521565873C11EA2A620D1C1 /* ObjectDetector.swift in Sources */,
+				4A772115CC94FEF809B6292B /* PhoneCameraFrameSource.swift in Sources */,
+				83E0644085EBAD96E099EBCA /* Settings.swift in Sources */,
+				1550288D46B48067863F3CE2 /* SettingsView.swift in Sources */,
+				F90312A81F66956C5E21BD23 /* Theme.swift in Sources */,
+				71576CF8A2452CDEA7A4912E /* VoiceFeedback.swift in Sources */,
+				F53B4AA52D671D7220E46043 /* YOLOv3TinyInt8LUT.mlmodel in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		00B758CAE83BAB94DCACEE0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		0513F30C53411CE75F2F0B6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6F49A696E1180027839F48E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLIENT_TOKEN = 0;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COREML_CODEGEN_LANGUAGE = None;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Metanav/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				META_APP_ID = 0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.metanav.app;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F6AE6AAAEFCD5A34F56F82AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLIENT_TOKEN = 0;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COREML_CODEGEN_LANGUAGE = None;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Metanav/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				META_APP_ID = 0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.metanav.app;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		581983BB25C31311D8469FDB /* Build configuration list for PBXNativeTarget "Metanav" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F49A696E1180027839F48E9 /* Debug */,
+				F6AE6AAAEFCD5A34F56F82AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D386D9ED0AA71EB924A62A7F /* Build configuration list for PBXProject "Metanav" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0513F30C53411CE75F2F0B6C /* Debug */,
+				00B758CAE83BAB94DCACEE0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		6F46B2BC664CC2305E5BD05D /* XCLocalSwiftPackageReference "MetanavCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = MetanavCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DF083417CB72BD4F5DD552D4 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/meta-wearables-dat-ios";
+			requirement = {
+				kind = exactVersion;
+				version = 0.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BFACDE65824411C75D1E0D4F /* MWDATCamera */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF083417CB72BD4F5DD552D4 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */;
+			productName = MWDATCamera;
+		};
+		E718D3E3E4D8268C53D9CDF0 /* MWDATCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF083417CB72BD4F5DD552D4 /* XCRemoteSwiftPackageReference "meta-wearables-dat-ios" */;
+			productName = MWDATCore;
+		};
+		F10DE2911B8C987E6CEF2DEC /* MetanavCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MetanavCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 9B61A1120D0FBB4D044CCEB2 /* Project object */;
+}
