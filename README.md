@@ -78,7 +78,7 @@ tokens needed while Developer Mode is on.
 ```bash
 cd android && ./gradlew :core:test                       # 16 Kotlin scenario tests
 cd ios/MetanavCore && swift run -c release MetanavCoreCheck   # same scenarios in Swift, no Xcode needed
-cd ios/MetanavCore && swift test                         # XCTest version (needs Xcode)
+cd ios/MetanavCore && swift test --build-system native   # XCTest version (needs Xcode)
 ```
 
 The scenarios render synthetic depth maps from the same pinhole geometry the reasoner assumes
