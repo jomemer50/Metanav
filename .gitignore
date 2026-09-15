@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+
+# ML models (downloaded by scripts/fetch-models.sh, ~125 MB)
+ios/Metanav/Models/
+android/app/src/main/assets/*.tflite
+*.part
+
+# Xcode / SwiftPM
+ios/**/xcuserdata/
+ios/**/*.xcuserstate
+ios/MetanavCore/.build/
+ios/MetanavCore/.swiftpm/
+ios/Metanav.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/
+DerivedData/
+
+# Android / Gradle
+android/.gradle/
+android/build/
+android/*/build/
+android/local.properties
+android/.idea/
+android/*.iml
+android/.kotlin/
+android/captures/
